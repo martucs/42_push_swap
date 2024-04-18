@@ -14,7 +14,7 @@ The step by step process I chose:
 9. Set index or individual cost to be the first element of the stack (considering when it's better to rotate or reverse rotate)
 10. Set target in A for each element of stack B (look for the closest bigger number to the stack B number in the stack A)
 11. Find cost for both stacks (with the index value I calculate how many moves it takes to put every element AND their target at the top of each stack -> don't forget you can rr and rrr)
-12. Choose the best move == element with lowest cost
+12. Choose the best move = element with lowest cost
 13. Do the most optimal movements to get the best node in B and its target in A to the top of the stacks
 14. Push the best node in B to A
 15. Repeat process from step 9 until stack B is empty
