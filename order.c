@@ -6,18 +6,20 @@
 /*   By: martalop <martalop@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/04 12:08:05 by martalop          #+#    #+#             */
-/*   Updated: 2024/04/11 22:34:56 by martalop         ###   ########.fr       */
+/*   Updated: 2024/04/18 21:10:55 by martalop         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_list	*smallest_indx(t_list *stack)
+t_list	*smallest_cost(t_list *stack)
 {
 	t_list	*min;
 
+	if (stack->cost == 0)
+		return (stack);
 	min = stack;
-	while (stack && stack->next)
+	while (stack)
 	{
 		if (stack->cost < min->cost)
 			min = stack;
@@ -48,12 +50,12 @@ int	check_order(t_list *stack)
 
 t_list	*find_min(t_list *stack, t_list *min_num)
 {
-	int	min;
-	int	nb;
+	int		min;
+	int		nb;
 	t_list	*tmp;
 
 	tmp = NULL;
-	min = 2147483647; 
+	min = 2147483647;
 	if (!min_num)
 		nb = -2147483648;
 	else
@@ -78,12 +80,14 @@ void	three_nums(t_list **stack)
 {
 	if (!check_order(*stack))
 		return ;
-	if ((*stack)->num < (*stack)->next->num && (*stack)->num < (*stack)->next->next->num)
+	if ((*stack)->num < (*stack)->next->num && \
+			(*stack)->num < (*stack)->next->next->num)
 	{
 		swap(stack, 'A');
 		rotate(stack, 'A');
 	}
-	else if ((*stack)->num > (*stack)->next->num && (*stack)->num > (*stack)->next->next->num)
+	else if ((*stack)->num > (*stack)->next->num && \
+			(*stack)->num > (*stack)->next->next->num)
 	{
 		if ((*stack)->next->num > (*stack)->next->next->num)
 		{
@@ -91,18 +95,10 @@ void	three_nums(t_list **stack)
 			swap(stack, 'A');
 		}
 		else if ((*stack)->next->num < (*stack)->next->next->num)
-		{
 			rotate(stack, 'A');
-		}
 	}
 	else if ((*stack)->num > (*stack)->next->num)
-	{
 		swap(stack, 'A');
-	}
 	else if ((*stack)->num < (*stack)->next->num)
-	{
 		reverse_rotate(stack, 'A');
-	}
 }
-// que pasa si quiero ordenar tres numeros del stack B? no puedo usar esta funcion? o como lo combio a B?
-// 
