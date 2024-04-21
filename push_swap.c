@@ -131,7 +131,7 @@ t_list	*arg_check(char **arg)
 			return (NULL);
 		}
 		node->num = ft_atoi(arg[x], &flag);
-		if (flag == 1 || check_list_num(node->num, stack) == 1)
+		if (flag == 1 || check_list_num(node->num, stack) == 1 || !arg[x][0])
 		{
 			free_list(stack);
 			free(node);
