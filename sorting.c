@@ -104,7 +104,7 @@ void	sort_nums(t_list **stack_a, t_list **stack_b, int argc)
 			rotate(stack_a, 'A');
 	}
 }
-// o tmb podria:
+// I could also:
 /*	if (last_target->index > 0)
 	{
 		while (i < last_target->index)
