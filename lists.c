@@ -6,7 +6,7 @@
 /*   By: martalop <martalop@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/07 19:29:45 by martalop          #+#    #+#             */
-/*   Updated: 2024/04/11 22:35:46 by martalop         ###   ########.fr       */
+/*   Updated: 2024/04/20 12:00:19 by martalop         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,12 +52,43 @@ void	indx_list(t_list *stack)
 	while (tmp)
 	{
 		tmp->index = i - len;
-		tmp= tmp->next;
+		tmp = tmp->next;
 		i++;
 	}
-} 
+}
 
-t_list	*dup_list(t_list *stack)
+void	free_list(t_list *list)
+{
+	t_list	*tmp;
+
+	tmp = list;
+	while (tmp != NULL)
+	{
+		tmp = tmp->next;
+		free(list);
+		list = tmp;
+	}
+}
+
+void	add_node_to_list(t_list *node, t_list **dir_stack)
+{
+	t_list	*aux;
+
+	if (*dir_stack == NULL)
+	{
+		*dir_stack = node;
+		return ;
+	}
+	aux = *dir_stack;
+	while (aux->next != NULL)
+	{
+		aux = aux->next;
+	}
+	aux->next = node;
+	node->next = NULL;
+}
+
+/*t_list	*dup_list(t_list *stack)
 {
 	t_list	*new;
 	t_list	*tmp;
@@ -72,4 +103,4 @@ t_list	*dup_list(t_list *stack)
 		new = new->next;
 	}
 	return (tmp);
-} // esta mal, tengo que crear cada nodo con malloc
+} // wrong, I have to create each node with malloc*/
