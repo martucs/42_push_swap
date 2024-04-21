@@ -4,7 +4,7 @@
 The step by step process I chose:
 1. Check for invalid arguments or numbers already in order (parsing) and I put them in stack A at the same time  
 2. Call for functions to manage the case of receiving only 2 and 3 numbers  
-3. Find median (a bit subjective in my opinion)
+3. Find median (find the smallest number as many times as ft_listsize(stack) / 2)
 4. Push first two nodes from stack A to B
 5. Check if every node pushed to stack B is bigger than the median
 
