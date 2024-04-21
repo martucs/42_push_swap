@@ -1,6 +1,6 @@
 - Done with the turkish algorithm
 - Use of singly linked list (memory adress of 'next' and of 'target' in stack A, NULL terminated and with no 'previous')
-- Norminettte still not ok
+- Norminettte ko
 
 The step by step process I chose:
 1. Check for invalid arguments or numbers already in order (parsing) and I put them in stack A at the same time  
