@@ -52,11 +52,11 @@ void	push_to_b(t_list **dir_stack_a, t_list **dir_stack_b)
 		return ;
 	tmp_a = *dir_stack_a;
 	*dir_stack_a = (*dir_stack_a)->next; // muevo el puntero al segundo elemento de stack A
-	tmp_a->next = *dir_stack_b; // en el next del primer nodo del stack A pongo la direccion del stack B
-	*dir_stack_b = tmp_a; // el puntero stack B apunta al que antes era el primer nodo de stack A, ya actualizad
+	tmp_a->next = *dir_stack_b; // en el next del primer nodo del stack A pongo la dirección del stack B
+	*dir_stack_b = tmp_a; // el puntero stack B apunta al que antes era el primer nodo de stack A, ya actualizado
 	
-	// si el stack A esta vacio me daria segmentation fault en tmp_a->next si no tuviera el if
-	// si el B esta vacio  quiero seguir anadiendo el nodo del a al b
+	// si el stack A está vacío me daría segmentation fault en tmp_a->next si no tuviera el if
+	// si el B está vacío quiero seguir añadiendo el nodo del a al b
 	write(1, "pb\n", 3);
 }
 
